@@ -1,8 +1,7 @@
-
 class BabyShowerAnalytics {
   constructor() {
     // IMPORTANTE: Reemplaza esta URL cuando despliegues tu Google Apps Script
-    this.API_URL = 'PEGA_AQUI_TU_URL_DE_GOOGLE_APPS_SCRIPT';
+    this.API_URL = 'https://script.google.com/macros/s/AKfycbyT_5xpF403_Tb_oKvnGtxDB5DSpixLKRbXbwkla2FuRXSP7klsNvG8ABW5SFPr-8ENIA/exec';
     
     this.isEnabled = true;
     this.queue = [];

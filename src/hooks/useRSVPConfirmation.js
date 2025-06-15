@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useBabyShowerAnalytics } from './useBabyShowerAnalytics';
 
@@ -50,7 +49,7 @@ export const useRSVPConfirmation = () => {
     setState('sending');
     
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwIVfTvYTUwFX1dXdjV4a2DPdXqHpm_s9JftbbNVUKf99PmITQRoRWSiiJFvGuWVeFB/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyT_5xpF403_Tb_oKvnGtxDB5DSpixLKRbXbwkla2FuRXSP7klsNvG8ABW5SFPr-8ENIA/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
