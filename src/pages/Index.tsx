@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import BabyShowerHeader from '@/components/BabyShowerHeader';
@@ -10,7 +11,6 @@ import GiftRegistryInfo from '@/components/GiftRegistryInfo';
 import ParticleBackground from '@/components/ParticleBackground';
 import MusicControls from '@/components/MusicControls';
 import { usePageTracking } from '@/hooks/useBabyShowerAnalytics';
-import CelebrationForm from '@/components/CelebrationForm';
 
 const Index = () => {
   // Usar el hook de tracking de página
@@ -85,8 +85,6 @@ const Index = () => {
               gameData={gameData}
               onGameComplete={handleGameComplete}
             />
-            
-            <CelebrationForm />
 
             <div className="text-center mt-12 animate-fade-in-scale">
               <p className="font-great-vibes text-2xl sm:text-3xl lg:text-4xl text-yellow-300 text-glow leading-relaxed">

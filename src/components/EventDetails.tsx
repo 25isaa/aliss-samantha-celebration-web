@@ -41,7 +41,7 @@ const EventDetails = ({ eventDate }: EventDetailsProps) => {
       <div className="mt-6 pt-6 border-t border-white/20 text-center">
         <div className="text-2xl mb-2">📍</div>
         <div className="font-playfair text-base sm:text-lg lg:text-xl text-white/90 italic">
-          [Dirección del evento aquí]
+          En Kennedy, dirección por confirmar
         </div>
       </div>
       
