@@ -6,11 +6,16 @@ import EventDetails from '@/components/EventDetails';
 import CountdownTimer from '@/components/CountdownTimer';
 import WishList from '@/components/WishList';
 import InteractiveGames from '@/components/InteractiveGames';
-import RSVPSection from '@/components/RSVPSection';
+import RSVPConfirmation from '@/components/RSVPConfirmation';
+import GiftRegistryInfo from '@/components/GiftRegistryInfo';
 import ParticleBackground from '@/components/ParticleBackground';
 import MusicControls from '@/components/MusicControls';
+import { usePageTracking } from '@/hooks/useBabyShowerAnalytics';
 
 const Index = () => {
+  // Usar el hook de tracking de página
+  usePageTracking('Página Principal');
+
   const [gameData, setGameData] = useState({
     weightGuesses: [] as number[],
     namesSuggested: [] as string[],
@@ -19,26 +24,6 @@ const Index = () => {
   });
 
   const eventDate = new Date('2025-06-29T16:30:00');
-
-  const handleRSVP = (attending: boolean) => {
-    const message = attending 
-      ? '¡Genial! 🎉 Gracias por confirmar tu asistencia. ¡Te esperamos con muchas ganas!'
-      : 'Gracias por avisar 💕 Aunque no puedas acompañarnos, estarás en nuestros corazones.';
-    
-    if (attending) {
-      setGameData(prev => ({ ...prev, attendingCount: prev.attendingCount + 1 }));
-    }
-    
-    toast.success(message, {
-      duration: 4000,
-      style: {
-        background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 182, 193, 0.9))',
-        color: '#4a1d96',
-        border: '1px solid rgba(255, 215, 0, 0.5)',
-        fontFamily: 'Playfair Display, serif'
-      }
-    });
-  };
 
   const handleGameComplete = (gameType: string, data?: any) => {
     setGameData(prev => ({
@@ -90,9 +75,11 @@ const Index = () => {
               </h2>
             </div>
             
-            <WishList />
+            <RSVPConfirmation />
             
-            <RSVPSection onRSVP={handleRSVP} />
+            <GiftRegistryInfo />
+            
+            <WishList />
             
             <InteractiveGames 
               gameData={gameData}
