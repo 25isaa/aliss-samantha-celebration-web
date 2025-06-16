@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useBabyShowerAnalytics } from './useBabyShowerAnalytics';
 
@@ -5,8 +6,6 @@ export const useRSVPConfirmation = () => {
   const [state, setState] = useState('initial'); // initial, modal, sending, success, error
   const [formData, setFormData] = useState({
     nombre: '',
-    email: '',
-    telefono: '',
     comentarios: '',
     respuesta: '' // 'asistire' o 'no_asistire'
   });
@@ -22,8 +21,6 @@ export const useRSVPConfirmation = () => {
     setState('initial');
     setFormData({
       nombre: '',
-      email: '',
-      telefono: '',
       comentarios: '',
       respuesta: ''
     });
@@ -58,8 +55,6 @@ export const useRSVPConfirmation = () => {
         body: JSON.stringify({
           nombre: formData.nombre,
           respuesta: formData.respuesta,
-          email: formData.email,
-          telefono: formData.telefono,
           comentarios: formData.comentarios
         })
       });
@@ -84,8 +79,6 @@ export const useRSVPConfirmation = () => {
     setState('initial');
     setFormData({
       nombre: '',
-      email: '',
-      telefono: '',
       comentarios: '',
       respuesta: ''
     });

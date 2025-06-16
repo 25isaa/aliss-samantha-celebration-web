@@ -1,5 +1,6 @@
 
-import { Calendar, Clock, MapPin, Heart, Gift, User, Mail, Phone, MessageCircle } from 'lucide-react';
+
+import { Calendar, Clock, MapPin, Heart, Gift, User, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
@@ -131,36 +132,6 @@ const RSVPConfirmation = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-yellow-300 flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  Email (opcional)
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => updateFormData('email', e.target.value)}
-                  placeholder="tu@email.com"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-yellow-300"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="telefono" className="text-yellow-300 flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  Teléfono (opcional)
-                </Label>
-                <Input
-                  id="telefono"
-                  type="tel"
-                  value={formData.telefono}
-                  onChange={(e) => updateFormData('telefono', e.target.value)}
-                  placeholder="Tu número de teléfono"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-yellow-300"
-                />
-              </div>
-
-              <div className="space-y-2">
                 <Label htmlFor="comentarios" className="text-yellow-300 flex items-center gap-2">
                   <MessageCircle className="w-4 h-4" />
                   Comentarios adicionales (opcional)
@@ -198,3 +169,4 @@ const RSVPConfirmation = () => {
 };
 
 export default RSVPConfirmation;
+
