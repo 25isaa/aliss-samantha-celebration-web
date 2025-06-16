@@ -1,4 +1,5 @@
 
+
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import BabyShowerHeader from '@/components/BabyShowerHeader';
@@ -11,7 +12,6 @@ import GiftRegistryInfo from '@/components/GiftRegistryInfo';
 import ParticleBackground from '@/components/ParticleBackground';
 import MusicControls from '@/components/MusicControls';
 import SocialShare from '@/components/SocialShare';
-import PhotoGallery from '@/components/PhotoGallery';
 import { usePageTracking } from '@/hooks/useBabyShowerAnalytics';
 
 const Index = () => {
@@ -81,8 +81,6 @@ const Index = () => {
             
             <SocialShare />
             
-            <PhotoGallery />
-            
             <GiftRegistryInfo />
             
             <WishList />
@@ -108,3 +106,4 @@ const Index = () => {
 };
 
 export default Index;
+
