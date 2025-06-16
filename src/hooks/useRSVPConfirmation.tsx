@@ -2,17 +2,25 @@
 import { useState } from 'react';
 import { useBabyShowerAnalytics } from './useBabyShowerAnalytics';
 
+type RSVPState = 'initial' | 'modal' | 'sending' | 'success' | 'error';
+
+interface FormData {
+  nombre: string;
+  comentarios: string;
+  respuesta: string; // 'asistire' o 'no_asistire'
+}
+
 export const useRSVPConfirmation = () => {
-  const [state, setState] = useState('initial'); // initial, modal, sending, success, error
-  const [formData, setFormData] = useState({
+  const [state, setState] = useState<RSVPState>('initial');
+  const [formData, setFormData] = useState<FormData>({
     nombre: '',
     comentarios: '',
-    respuesta: '' // 'asistire' o 'no_asistire'
+    respuesta: ''
   });
   const [errorMessage, setErrorMessage] = useState('');
   const { trackConfirmacion, trackError } = useBabyShowerAnalytics();
 
-  const openModal = (respuesta) => {
+  const openModal = (respuesta: string) => {
     setFormData(prev => ({ ...prev, respuesta }));
     setState('modal');
   };
@@ -27,7 +35,7 @@ export const useRSVPConfirmation = () => {
     setErrorMessage('');
   };
 
-  const updateFormData = (field, value) => {
+  const updateFormData = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 

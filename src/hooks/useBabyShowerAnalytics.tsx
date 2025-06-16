@@ -4,47 +4,47 @@ import babyShowerAnalytics from '../lib/babyShowerAnalytics';
 
 export const useBabyShowerAnalytics = () => {
   // Configurar URL si no está configurada
-  const configurarAnalytics = useCallback((googleScriptUrl) => {
+  const configurarAnalytics = useCallback((googleScriptUrl: string) => {
     babyShowerAnalytics.configurarURL(googleScriptUrl);
   }, []);
 
   // Rastrear clics con información adicional
-  const trackClick = useCallback((elemento, contexto) => {
+  const trackClick = useCallback((elemento: string, contexto?: string) => {
     babyShowerAnalytics.trackClick(elemento, contexto);
   }, []);
 
   // Rastrear envío de formularios
-  const trackFormSubmit = useCallback((formType, formData) => {
+  const trackFormSubmit = useCallback((formType: string, formData: any) => {
     babyShowerAnalytics.trackFormSubmit(formType, formData);
   }, []);
 
   // Rastrear confirmación de asistencia
-  const trackConfirmacion = useCallback((nombre, asistira, mensaje) => {
+  const trackConfirmacion = useCallback((nombre: string, asistira: boolean, mensaje?: string) => {
     babyShowerAnalytics.trackConfirmacion(nombre, asistira, mensaje);
   }, []);
 
   // Rastrear selección de regalos
-  const trackGift = useCallback((giftData) => {
+  const trackGift = useCallback((giftData: any) => {
     babyShowerAnalytics.trackGift(giftData);
   }, []);
 
   // Rastrear compartir contenido
-  const trackShare = useCallback((contentType, platform) => {
+  const trackShare = useCallback((contentType: string, platform: string) => {
     babyShowerAnalytics.trackShare(contentType, platform);
   }, []);
 
   // Rastrear descargas
-  const trackDownload = useCallback((resource) => {
+  const trackDownload = useCallback((resource: string) => {
     babyShowerAnalytics.trackDownload(resource);
   }, []);
 
   // Rastrear eventos personalizados
-  const trackCustomEvent = useCallback((eventName, description, data) => {
+  const trackCustomEvent = useCallback((eventName: string, description: string, data?: any) => {
     babyShowerAnalytics.trackCustomEvent(eventName, description, data);
   }, []);
 
   // Rastrear errores
-  const trackError = useCallback((error, context) => {
+  const trackError = useCallback((error: any, context: string) => {
     babyShowerAnalytics.trackError(error, context);
   }, []);
 
@@ -68,7 +68,7 @@ export const useBabyShowerAnalytics = () => {
 };
 
 // Hook para rastrear automáticamente una página
-export const usePageTracking = (pageName, options = {}) => {
+export const usePageTracking = (pageName: string, options: any = {}) => {
   const pageStartTime = useRef(Date.now());
   
   useEffect(() => {
@@ -90,10 +90,10 @@ export const usePageTracking = (pageName, options = {}) => {
 };
 
 // Hook para formularios con tracking automático
-export const useFormTracking = (formName) => {
+export const useFormTracking = (formName: string) => {
   const { trackFormSubmit, trackError } = useBabyShowerAnalytics();
 
-  const handleSubmit = useCallback(async (formData, submitFunction) => {
+  const handleSubmit = useCallback(async (formData: any, submitFunction: any) => {
     try {
       // Rastrear inicio del envío
       babyShowerAnalytics.trackCustomEvent(
@@ -123,8 +123,8 @@ export const useFormTracking = (formName) => {
 export const useButtonTracking = () => {
   const { trackClick } = useBabyShowerAnalytics();
 
-  const createClickHandler = useCallback((buttonName, originalHandler, contexto) => {
-    return (...args) => {
+  const createClickHandler = useCallback((buttonName: string, originalHandler?: any, contexto?: string) => {
+    return (...args: any[]) => {
       // Rastrear el clic
       trackClick(buttonName, contexto);
       
@@ -143,11 +143,11 @@ export const useErrorTracking = () => {
   const { trackError } = useBabyShowerAnalytics();
 
   useEffect(() => {
-    const handleError = (error, errorInfo) => {
+    const handleError = (error: any, errorInfo: any) => {
       trackError(error, 'React Error Boundary');
     };
 
-    const handleUnhandledRejection = (event) => {
+    const handleUnhandledRejection = (event: any) => {
       trackError(event.reason, 'Unhandled Promise Rejection');
     };
 
