@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import BabyShowerHeader from '@/components/BabyShowerHeader';
@@ -81,8 +79,6 @@ const Index = () => {
             
             <SocialShare />
             
-            <GiftRegistryInfo />
-            
             <WishList />
             
             <InteractiveGames 
@@ -106,4 +102,3 @@ const Index = () => {
 };
 
 export default Index;
-
