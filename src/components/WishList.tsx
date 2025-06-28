@@ -1,7 +1,6 @@
-
 const WishList = () => {
   const wishItems = [
-    { icon: '👶', text: 'Ropa de bebé (0-6 meses)' },
+    { icon: '👶', text: 'Ropa de bebé (0-1 año)' },
     { icon: '🍼', text: 'Artículos de alimentación' },
     { icon: '🛁', text: 'Productos de higiene y baño' },
     { icon: '🧸', text: 'Juguetes suaves y mordedores' },
